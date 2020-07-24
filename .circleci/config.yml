@@ -23,7 +23,12 @@ jobs:
           key: v1-dependencies-{{ checksum "pom.xml" }}
 
       # run tests!
-
+      - run:
+          name: Get chrome version
+          command: google-chrome --version
+      - run:
+          name: Setting chmod for Chrome
+          command: chmod 777 src/test/resources/chromedriver
       - run:
           name: Running tests
           command: mvn clean install
@@ -48,6 +53,6 @@ workflows:
           filters:
             branches:
               only:
-                - allure
+                - master
     jobs:
       - ui-tests
