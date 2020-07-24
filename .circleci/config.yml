@@ -48,6 +48,6 @@ workflows:
           filters:
             branches:
               only:
-                - master
+                - allure
     jobs:
       - ui-tests
